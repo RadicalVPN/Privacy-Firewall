@@ -22,4 +22,4 @@ jobs:
       - name: Build generator
         run: |
           cd generator
-          go build
+          go build .
