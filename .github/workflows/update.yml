@@ -25,7 +25,9 @@ jobs:
           go build .
 
       - name: Generate blocklists
-        run: "./privacy_firewall"
+        run: |
+          cd generator
+          ./privacy_firewall
 
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
