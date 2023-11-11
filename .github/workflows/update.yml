@@ -23,3 +23,13 @@ jobs:
         run: |
           cd generator
           go build .
+
+      - name: Generate blocklists
+        run: "./privacy_firewall"
+
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "lists"
+          default_author: github_actor
+          message: "feat: auto update blocklists"
