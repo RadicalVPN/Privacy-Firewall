@@ -3,7 +3,7 @@ name: Update blocklists
 on:
   schedule:
     # cronjob that triggers every hour
-    - cron: "0 * * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 jobs:
