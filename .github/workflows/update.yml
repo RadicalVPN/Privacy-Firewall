@@ -11,10 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Update blocklists
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Setup Go 1.20
         uses: actions/setup-go@v4
         with:
-          go-version: "1.20"
+          go-version: 1.20
 
       - name: Build generator
         run: |
