@@ -2,8 +2,8 @@ name: Update blocklists
 
 on:
   schedule:
-    # cronjob that triggers every day at 2PM UTC
-    - cron: "0 14 * * *"
+    # cronjob that triggers every hour
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
