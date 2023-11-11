@@ -10,6 +10,9 @@ jobs:
   update_lists:
     runs-on: ubuntu-latest
     name: Update blocklists
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
