@@ -86,7 +86,7 @@ func main() {
 		"https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/domains/ultimate.txt",  // https://github.com/hagezi/dns-blocklists#ultimate
 	}
 
-	//merge recommended and comprehensive lists
+	//merge comprehensiv and agressive lists
 	agressive_list = append(agressive_list, comprehensive_list...)
 
 	for _, source := range agressive_list {
