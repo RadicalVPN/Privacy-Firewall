@@ -62,7 +62,7 @@ func main() {
 
 	for _, source := range recommended_list {
 		fmt.Println("Loading recommended source: " + source)
-		create_blocklist("basic", source)
+		create_blocklist("recommended", source)
 	}
 
 	comprehensive_list := []string{
