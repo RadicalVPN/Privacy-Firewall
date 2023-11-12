@@ -22,7 +22,15 @@ jobs:
         with:
           go-version: "1.20"
 
-      - name: Build generator
+      - name: Cache generator
+        id: cache-generator
+        uses: actions/cache@v2
+        with:
+          path: generator/privacy_firewall
+          key: ${{ runner.os }}-generator-${{ hashFiles('./generator/*') }}
+
+      - if: steps.cache-generator.outputs.cache-hit != 'true'
+        name: Build generator
         run: |
           cd generator
           go build .
