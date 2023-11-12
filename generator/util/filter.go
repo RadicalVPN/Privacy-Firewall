@@ -1,6 +1,9 @@
 package util
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 func FilterDuplicates(input []string) []string {
 	seen := make(map[string]struct{}, len(input))
@@ -17,12 +20,15 @@ func FilterDuplicates(input []string) []string {
 }
 
 func FilterComments(input string) string {
-	if strings.HasPrefix(input, "#") {
+	if strings.HasPrefix(input, "#") || strings.HasPrefix(input, "!") {
 		return ""
 	}
 
-	if strings.HasPrefix(input, "!") {
-		return ""
+	if strings.HasPrefix(input, "||") && strings.HasSuffix(input, "^") {
+		fmt.Println("Parsing domain with prefix + suffix: ", input)
+		//parse the domain
+		input = strings.TrimPrefix(input, "||")
+		input = strings.TrimSuffix(input, "^")
 	}
 
 	return input

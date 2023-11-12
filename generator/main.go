@@ -34,7 +34,7 @@ func create_blocklist(alias string, url string) {
 			continue
 		}
 
-		source_slice = append(source_slice, line)
+		source_slice = append(source_slice, parsed)
 	}
 
 	//remove all duplicates
