@@ -19,7 +19,7 @@ jobs:
 
       - name: Cache generator
         id: cache-generator
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: generator/privacy_firewall
           key: ${{ runner.os }}-generator-${{ hashFiles('./generator/*') }}
