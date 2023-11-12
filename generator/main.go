@@ -10,18 +10,6 @@ import (
 	"strings"
 )
 
-func filter(line string) string {
-	if strings.HasPrefix(line, "#") {
-		return ""
-	}
-
-	if strings.HasPrefix(line, "!") {
-		return ""
-	}
-
-	return line
-}
-
 func download(url string) string {
 	res, err := http.Get(url)
 	if err != nil {
@@ -41,7 +29,7 @@ func create_blocklist(alias string, url string) {
 	source_slice := []string{}
 
 	for _, line := range strings.Split(strings.TrimRight(download(url), "\n"), "\n") {
-		parsed := filter(line)
+		parsed := util.FilterComments(line)
 		if parsed == "" {
 			continue
 		}
