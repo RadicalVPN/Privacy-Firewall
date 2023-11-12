@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"privacy_firewall/util"
 	"strings"
 )
 
@@ -47,6 +48,9 @@ func create_blocklist(alias string, url string) {
 
 		source_slice = append(source_slice, line)
 	}
+
+	//remove all duplicates
+	source_slice = util.FilterDuplicates(source_slice)
 
 	f, err := os.OpenFile("../lists/"+alias+".txt", os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
